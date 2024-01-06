@@ -9,22 +9,24 @@ import org.springframework.stereotype.Service;
 
 import com.example.Login.commen.APIResponse;
 import com.example.Login.entity.Login;
+import com.example.Login.entity.User;
 import com.example.Login.repository.LoginRepository;
+import com.example.Login.repository.UserRepository;
 import com.example.Login.util.jwtUtil;
 
 @Service
 public class LoginService {
 
 	@Autowired
-	LoginRepository loginRepository;
+	UserRepository userRepository;
 	
 	@Autowired
 	jwtUtil JwtUtil;
-	public APIResponse posttoken(Login login) {
+	public APIResponse posttoken(User login) {
 		// TODO Auto-generated method stub
 		APIResponse apiRespons=new APIResponse();
 		
-		Login UserLogin =loginRepository.findAllLogin(login.getUserEmail(),login.getUserPassword());
+		User UserLogin =userRepository.findAllLogin(login.getUserEmail(),login.getUserPassword());
 		
 		if(UserLogin!=null) {
 			apiRespons.setStatus(HttpStatus.OK.value());

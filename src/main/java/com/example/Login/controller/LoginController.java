@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Login.commen.APIResponse;
 import com.example.Login.entity.Login;
+import com.example.Login.entity.User;
 import com.example.Login.service.LoginService;
 
 @RestController
@@ -19,7 +20,7 @@ public class LoginController {
 	LoginService loginService;
 	
 	@PostMapping("/token")
-	public ResponseEntity<APIResponse>posttoker(@RequestBody Login login){
+	public ResponseEntity<APIResponse>posttoker(@RequestBody User login){
 		APIResponse apiResponse=loginService.posttoken(login);
 		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 		

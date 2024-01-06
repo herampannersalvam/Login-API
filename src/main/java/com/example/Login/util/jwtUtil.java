@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Component;
 
-import com.example.Login.entity.Login;
+import com.example.Login.entity.User;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -18,7 +18,7 @@ public class jwtUtil {
 	
 	
 	
-	public String generatejwt(Login login) {
+	public String generatejwt(User login) {
 	    long millitime = System.currentTimeMillis();
 	    long expritime = millitime + expriytime * 1000;
 
